@@ -10,13 +10,16 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
-    <title>Document</title>
+    <link rel="icon" type="image/x-icon" href="./icon.png" />
+    <title>Facebook</title>
 
     <style>
       * {
+        font-family: sans-serif;
         margin: 0;
         padding: 0;
         --primary-color: #f0f2f5;
+        --accent-color: #65686c;
       }
 
       .icon-button {
@@ -43,6 +46,77 @@
         right: -5px;
         top: -5px;
       }
+
+      .icon-text-button {
+        background-color: transparent;
+        border: none;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-size: 16px;
+        color: var(--accent-color);
+        font-weight: 500;
+        padding: 10px;
+        cursor: pointer;
+      }
+
+      .story-card {
+        box-shadow: 0.1px 0.1px 1px gray;
+        min-width: 120px;
+        border-radius: 10px;
+        background-image: url("./story-01.jpg");
+        background-size: cover;
+        position: relative;
+      }
+
+      .tablet-icon-button {
+        font-size: 20px;
+        background-color: transparent;
+        border: none;
+        display: flex;
+        align-items: center;
+        border-bottom: 3px solid transparent;
+        padding-bottom: 18px;
+        padding-top: 10px;
+        width: 100px;
+        justify-content: center;
+      }
+
+      .desktop-link {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        cursor: pointer;
+      }
+
+      .feed-item {
+        background-color: white;
+        min-height: 780px;
+        border-radius: 10px;
+        padding: 20px 20px;
+        max-width: 700px;
+        margin: 0 auto;
+      }
+
+      .tablet_only {
+        display: none !important;
+      }
+
+      .desktop_only {
+        display: none !important;
+      }
+
+      @media screen and (min-width: 1050px) {
+        .tablet_only {
+          display: flex !important;
+        }
+      }
+
+      @media screen and (min-width: 1450px) {
+        .desktop_only {
+          display: flex !important;
+        }
+      }
     </style>
   </head>
   <body>
@@ -51,13 +125,15 @@
       <!-- Navbar -->
       <nav
         style="
-          padding: 10px;
+          padding: 0 10px;
           min-height: 30px;
           display: flex;
           justify-content: space-between;
+          align-items: center;
         "
       >
-        <div style="display: flex; gap: 8px">
+        <!-- Left Actions -->
+        <div style="display: flex; gap: 8px; padding: 8px">
           <!-- Facebook Logo -->
           <button style="background-color: transparent; border: none">
             <i
@@ -69,11 +145,44 @@
           <!-- Search Button -->
           <button class="icon-button">
             <i
-              class="fa-brands fa-searchengin"
+              class="fa-solid fa-magnifying-glass"
               style="color: gray; font-size: 20px"
             ></i>
           </button>
         </div>
+
+        <!-- Middle Actions -->
+        <div style="display: flex" class="tablet_only">
+          <button
+            class="tablet-icon-button"
+            style="border-bottom: 3px solid #0866ff"
+          >
+            <i class="fa-solid fa-house" style="color: #0866ff"></i>
+          </button>
+          <button class="tablet-icon-button">
+            <i
+              class="fa-brands fa-youtube"
+              style="color: var(--accent-color)"
+            ></i>
+          </button>
+          <button class="tablet-icon-button">
+            <i class="fa-solid fa-store" style="color: var(--accent-color)"></i>
+          </button>
+          <button class="tablet-icon-button">
+            <i
+              class="fa-regular fa-circle-user"
+              style="color: var(--accent-color)"
+            ></i>
+          </button>
+          <button class="tablet-icon-button">
+            <i
+              class="fa-solid fa-gamepad"
+              style="color: var(--accent-color)"
+            ></i>
+          </button>
+        </div>
+
+        <!-- Right Actions -->
         <div style="display: flex; gap: 8px">
           <!-- Figma Button -->
           <button class="icon-button">
@@ -142,114 +251,1235 @@
       </nav>
 
       <!-- Feed/Content -->
-      <main style="min-height: 100px">
-        <!-- Searchbar -->
-        <div style="min-height: 40px">
-          <!-- Search Input -->
-          <div>
-            <i class="fa-solid fa-circle-user"></i>
-            <input
-              style="
-                width: 85%;
-                background: rgb(228, 227, 227);
-                border: none;
-                padding: 5px;
-                border-radius: 20px;
-                font-size: 10px;
-              "
-              type="text"
-              placeholder="What's on your mind, Junaid?"
-            />
-          </div>
-
-          <!-- Divider -->
-          <hr style="margin: 10px" />
-
+      <main style="display: flex; min-height: 100px">
+        <!-- Shortcuts -->
+        <div
+          class="desktop_only"
+          style="
+            flex: 1;
+            background-color: var(--primary-color);
+            padding-top: 20px;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+          "
+        >
           <!-- Actions -->
-          <div style="display: flex; justify-content: center; gap: 2px">
-            <button>
-              <i style="color: crimson" class="fa-solid fa-video"></i> Live
-              Video
-            </button>
-            <button>
-              <i style="color: green" class="fa-solid fa-images"></i>
-              Photo/Video
-            </button>
-            <button>
-              <i style="color: deeppink" class="fa-brands fa-youtube"></i> Reel
-            </button>
+          <div style="display: flex; flex-direction: column; gap: 20px">
+            <!-- Link -->
+            <div class="desktop-link">
+              <img
+                src="./profile.jpg"
+                alt=""
+                style="width: 40px; border-radius: 100%"
+              />
+
+              Junaid Qureshi
+            </div>
+
+            <!-- Link -->
+            <div class="desktop-link">
+              <img
+                src="./profile.jpg"
+                alt=""
+                style="width: 40px; border-radius: 100%"
+              />
+
+              Meta AI
+            </div>
+
+            <!-- Link -->
+            <div class="desktop-link">
+              <img
+                src="./profile.jpg"
+                alt=""
+                style="width: 40px; border-radius: 100%"
+              />
+
+              Friends
+            </div>
+
+            <!-- Link -->
+            <div class="desktop-link">
+              <img
+                src="./profile.jpg"
+                alt=""
+                style="width: 40px; border-radius: 100%"
+              />
+
+              Professional Dashboard
+            </div>
+
+            <!-- Link -->
+            <div class="desktop-link">
+              <img
+                src="./profile.jpg"
+                alt=""
+                style="width: 40px; border-radius: 100%"
+              />
+
+              Groups
+            </div>
+
+            <!-- Link -->
+            <div class="desktop-link">
+              <img
+                src="./profile.jpg"
+                alt=""
+                style="width: 40px; border-radius: 100%"
+              />
+
+              Feed
+            </div>
+
+            <!-- Link -->
+            <div class="desktop-link">
+              <img
+                src="./profile.jpg"
+                alt=""
+                style="width: 40px; border-radius: 100%"
+              />
+
+              Marketplace
+            </div>
+
+            <!-- Link -->
+            <div class="desktop-link">
+              <button
+                style="
+                  background-color: #e2e5e9;
+                  border: none;
+                  border-radius: 100%;
+                  width: 40px;
+                  height: 40px;
+                "
+              >
+                <i class="fa-solid fa-chevron-down"></i>
+              </button>
+
+              See More
+            </div>
+          </div>
+
+          <!-- Jugaru Divider -->
+          <div
+            style="height: 2px; background-color: #e2e5e9; margin: 10px 0"
+          ></div>
+
+          <!-- Shortcuts -->
+          <div style="display: flex; flex-direction: column; gap: 20px">
+            <!-- Link -->
+            <div class="desktop-link">
+              <img
+                src="./profile.jpg"
+                alt=""
+                style="width: 40px; border-radius: 100%"
+              />
+
+              Developer Junaid
+            </div>
+
+            <!-- Link -->
+            <div class="desktop-link">
+              <img
+                src="./profile.jpg"
+                alt=""
+                style="width: 40px; border-radius: 100%"
+              />
+
+              Earn $1000 a month from Web Development with Junaid Qureshi
+            </div>
+
+            <!-- Link -->
+            <div class="desktop-link">
+              <button
+                style="
+                  background-color: #e2e5e9;
+                  border: none;
+                  border-radius: 100%;
+                  width: 40px;
+                  height: 40px;
+                "
+              >
+                <i class="fa-solid fa-chevron-down"></i>
+              </button>
+
+              See More
+            </div>
           </div>
         </div>
 
-        <!-- Stories -->
-        <div style="min-height: 100px; display: flex">
-          <!-- Card -->
-          <div style="border: 1px solid black; min-width: 50px">Card</div>
-
-          <!-- Card -->
-          <div style="border: 1px solid black; min-width: 50px">Card</div>
-
-          <!-- Card -->
-          <div style="border: 1px solid black; min-width: 50px">Card</div>
-
-          <!-- Card -->
-          <div style="border: 1px solid black; min-width: 50px">Card</div>
-
-          <!-- Card -->
-          <div style="border: 1px solid black; min-width: 50px">Card</div>
-        </div>
-
-        <!-- Feed List -->
-        <div style="min-height: 350px; margin-top: 10px">
-          <!-- Feed Item -->
-          <div style="height: 400px">
-            <!-- Header -->
+        <!-- Search, Stories, and Feed -->
+        <div
+          style="
+            flex: 2;
+            overflow: hidden;
+            background-color: var(--primary-color);
+          "
+        >
+          <!-- Searchbar and Actions -->
+          <div
+            style="
+              max-width: 700px;
+              margin: 0 auto;
+              padding: 15px;
+              background-color: var(--primary-color);
+            "
+          >
             <div
               style="
-                display: flex;
-                justify-content: space-between;
-                border: 1px solid black;
                 min-height: 40px;
+                background-color: white;
+                border-radius: 10px;
+                box-shadow: 0.1px 0.1px 1px gray;
+                padding: 15px 20px;
               "
             >
-              <!-- Profile -->
-              <div style="display: flex">
-                <div><i class="fa-solid fa-circle-user"></i></div>
-                <div>
-                  <div>Ahmed Raza</div>
-                  <div>4h . <i class="fa-solid fa-earth-asia"></i></div>
+              <!-- Search Box -->
+              <div style="display: flex; gap: 10px; align-items: center">
+                <!-- Avatar -->
+                <button style="position: relative" class="icon-button">
+                  <img
+                    src="./profile.jpg"
+                    alt=""
+                    style="width: 40px; border-radius: 100%"
+                  />
+                </button>
+
+                <!-- Text field -->
+                <input
+                  style="
+                    background: var(--primary-color);
+                    border: none;
+                    padding: 10px 15px;
+                    border-radius: 20px;
+                    font-size: 16px;
+                    width: 100%;
+                    outline: none;
+                    color: var(--accent-color);
+                  "
+                  type="text"
+                  placeholder="What's on your mind, Junaid?"
+                />
+              </div>
+
+              <!-- Divider -->
+              <div
+                style="
+                  height: 2px;
+                  background-color: var(--primary-color);
+                  margin: 10px 0;
+                "
+              ></div>
+
+              <!-- Actions -->
+              <div style="display: flex; justify-content: space-around">
+                <button class="icon-text-button">
+                  <i
+                    style="color: #f02849; font-size: 20px"
+                    class="fa-solid fa-video"
+                  ></i>
+                  Live video
+                </button>
+                <button class="icon-text-button">
+                  <i
+                    style="color: #45bd62; font-size: 20px"
+                    class="fa-solid fa-images"
+                  ></i>
+                  Photo/Video
+                </button>
+                <button class="icon-text-button">
+                  <i
+                    style="color: #fc5677; font-size: 20px"
+                    class="fa-brands fa-youtube"
+                  ></i>
+                  Reel
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Stories -->
+          <div
+            style="
+              min-height: 200px;
+              display: flex;
+              background-color: var(--primary-color);
+              padding-bottom: 15px;
+              padding-left: 20px;
+              gap: 10px;
+              position: relative;
+              overflow: hidden !important;
+              width: 95%;
+              background-color: var(--primary-color);
+              max-width: 700px;
+              margin: 0 auto;
+            "
+          >
+            <!-- Navigator -->
+            <button
+              style="
+                position: absolute;
+                top: 80px;
+                right: 30px;
+                background: var(--primary-color);
+                border-radius: 100%;
+                border: none;
+                width: 50px;
+                height: 50px;
+                cursor: pointer;
+                z-index: 9;
+                border: 1px solid rgba(0, 0, 0, 0.464);
+              "
+            >
+              <i
+                class="fa-solid fa-chevron-right"
+                style="color: black; font-size: 20px"
+              ></i>
+            </button>
+
+            <!-- Card -->
+            <div
+              class="story-card"
+              style="background-image: url('./story-01.jpg')"
+            >
+              <!-- Avatar -->
+              <button
+                style="
+                  position: absolute;
+                  top: 10px;
+                  left: 12px;
+                  border-radius: 100%;
+                "
+                class="icon-button"
+              >
+                <img
+                  src="./profile.jpg"
+                  alt=""
+                  style="
+                    width: 40px;
+                    border-radius: 100%;
+                    border: 1px solid blue;
+                  "
+                />
+              </button>
+
+              <!-- Profile Name -->
+              <div
+                style="
+                  position: absolute;
+                  bottom: 10px;
+                  left: 10px;
+                  font-size: 15px;
+                  color: white;
+                "
+              >
+                Tariq Jamil
+              </div>
+            </div>
+
+            <!-- Card -->
+            <div
+              class="story-card"
+              style="background-image: url('./story-02.jpg')"
+            >
+              <!-- Avatar -->
+              <button
+                style="
+                  position: absolute;
+                  top: 10px;
+                  left: 12px;
+                  border-radius: 100%;
+                "
+                class="icon-button"
+              >
+                <img
+                  src="./profile.jpg"
+                  alt=""
+                  style="
+                    width: 40px;
+                    border-radius: 100%;
+                    border: 1px solid blue;
+                  "
+                />
+              </button>
+
+              <!-- Profile Name -->
+              <div
+                style="
+                  position: absolute;
+                  bottom: 10px;
+                  left: 10px;
+                  font-size: 15px;
+                  color: white;
+                "
+              >
+                Tariq Jamil
+              </div>
+            </div>
+
+            <!-- Card -->
+            <div
+              class="story-card"
+              style="background-image: url('./story-03.jpg')"
+            >
+              <!-- Avatar -->
+              <button
+                style="
+                  position: absolute;
+                  top: 10px;
+                  left: 12px;
+                  border-radius: 100%;
+                "
+                class="icon-button"
+              >
+                <img
+                  src="./profile.jpg"
+                  alt=""
+                  style="
+                    width: 40px;
+                    border-radius: 100%;
+                    border: 1px solid blue;
+                  "
+                />
+              </button>
+
+              <!-- Profile Name -->
+              <div
+                style="
+                  position: absolute;
+                  bottom: 10px;
+                  left: 10px;
+                  font-size: 15px;
+                  color: white;
+                "
+              >
+                Ameen Alam
+              </div>
+            </div>
+
+            <!-- Card -->
+            <div
+              class="story-card"
+              style="background-image: url('./story-04.jpg')"
+            >
+              <!-- Avatar -->
+              <button
+                style="
+                  position: absolute;
+                  top: 10px;
+                  left: 12px;
+                  border-radius: 100%;
+                "
+                class="icon-button"
+              >
+                <img
+                  src="./profile.jpg"
+                  alt=""
+                  style="
+                    width: 40px;
+                    border-radius: 100%;
+                    border: 1px solid blue;
+                  "
+                />
+              </button>
+
+              <!-- Profile Name -->
+              <div
+                style="
+                  position: absolute;
+                  bottom: 10px;
+                  left: 10px;
+                  font-size: 15px;
+                  color: white;
+                "
+              >
+                A R Martial Arts Academy
+              </div>
+            </div>
+
+            <!-- Card -->
+            <div
+              class="story-card"
+              style="background-image: url('./story-05.jpg')"
+            >
+              <!-- Avatar -->
+              <button
+                style="
+                  position: absolute;
+                  top: 10px;
+                  left: 12px;
+                  border-radius: 100%;
+                "
+                class="icon-button"
+              >
+                <img
+                  src="./profile.jpg"
+                  alt=""
+                  style="
+                    width: 40px;
+                    border-radius: 100%;
+                    border: 1px solid blue;
+                  "
+                />
+              </button>
+
+              <!-- Profile Name -->
+              <div
+                style="
+                  position: absolute;
+                  bottom: 10px;
+                  left: 10px;
+                  font-size: 15px;
+                  color: white;
+                "
+              >
+                PakWheels
+              </div>
+            </div>
+
+            <!-- Card -->
+            <div
+              class="story-card"
+              style="background-image: url('./story-02.jpg')"
+            >
+              <!-- Avatar -->
+              <button
+                style="
+                  position: absolute;
+                  top: 10px;
+                  left: 12px;
+                  border-radius: 100%;
+                "
+                class="icon-button"
+              >
+                <img
+                  src="./profile.jpg"
+                  alt=""
+                  style="
+                    width: 40px;
+                    border-radius: 100%;
+                    border: 1px solid blue;
+                  "
+                />
+              </button>
+
+              <!-- Profile Name -->
+              <div
+                style="
+                  position: absolute;
+                  bottom: 10px;
+                  left: 10px;
+                  font-size: 15px;
+                  color: white;
+                "
+              >
+                Tariq Jamil
+              </div>
+            </div>
+
+            <!-- Card -->
+            <div
+              class="story-card"
+              style="background-image: url('./story-03.jpg')"
+            >
+              <!-- Avatar -->
+              <button
+                style="
+                  position: absolute;
+                  top: 10px;
+                  left: 12px;
+                  border-radius: 100%;
+                "
+                class="icon-button"
+              >
+                <img
+                  src="./profile.jpg"
+                  alt=""
+                  style="
+                    width: 40px;
+                    border-radius: 100%;
+                    border: 1px solid blue;
+                  "
+                />
+              </button>
+
+              <!-- Profile Name -->
+              <div
+                style="
+                  position: absolute;
+                  bottom: 10px;
+                  left: 10px;
+                  font-size: 15px;
+                  color: white;
+                "
+              >
+                Ameen Alam
+              </div>
+            </div>
+
+            <!-- Card -->
+            <div
+              class="story-card"
+              style="background-image: url('./story-04.jpg')"
+            >
+              <!-- Avatar -->
+              <button
+                style="
+                  position: absolute;
+                  top: 10px;
+                  left: 12px;
+                  border-radius: 100%;
+                "
+                class="icon-button"
+              >
+                <img
+                  src="./profile.jpg"
+                  alt=""
+                  style="
+                    width: 40px;
+                    border-radius: 100%;
+                    border: 1px solid blue;
+                  "
+                />
+              </button>
+
+              <!-- Profile Name -->
+              <div
+                style="
+                  position: absolute;
+                  bottom: 10px;
+                  left: 10px;
+                  font-size: 15px;
+                  color: white;
+                "
+              >
+                A R Martial Arts Academy
+              </div>
+            </div>
+
+            <!-- Card -->
+            <div
+              class="story-card"
+              style="background-image: url('./story-05.jpg')"
+            >
+              <!-- Avatar -->
+              <button
+                style="
+                  position: absolute;
+                  top: 10px;
+                  left: 12px;
+                  border-radius: 100%;
+                "
+                class="icon-button"
+              >
+                <img
+                  src="./profile.jpg"
+                  alt=""
+                  style="
+                    width: 40px;
+                    border-radius: 100%;
+                    border: 1px solid blue;
+                  "
+                />
+              </button>
+
+              <!-- Profile Name -->
+              <div
+                style="
+                  position: absolute;
+                  bottom: 10px;
+                  left: 10px;
+                  font-size: 15px;
+                  color: white;
+                "
+              >
+                PakWheels
+              </div>
+            </div>
+          </div>
+
+          <!-- Feed List -->
+          <div
+            style="
+              padding: 0 20px;
+              background-color: var(--primary-color);
+              border-radius: 10px;
+              display: flex;
+              flex-direction: column;
+              gap: 10px;
+              padding-bottom: 20px;
+            "
+          >
+            <!-- Feed Item -->
+            <div class="feed-item">
+              <!-- Header -->
+              <div
+                style="
+                  display: flex;
+                  justify-content: space-between;
+                  min-height: 40px;
+                "
+              >
+                <!-- Profile -->
+                <div style="display: flex; gap: 10px">
+                  <!-- Avatar -->
+                  <button style="position: relative" class="icon-button">
+                    <img
+                      src="./profile.jpg"
+                      alt=""
+                      style="width: 40px; border-radius: 100%"
+                    />
+                  </button>
+
+                  <!-- Text Content -->
+                  <div>
+                    <div style="font-size: 15px">Ahmed Raza</div>
+                    <div
+                      style="
+                        margin-top: 2px;
+                        font-size: 13.5px;
+                        color: var(--accent-color);
+                      "
+                    >
+                      4h . <i class="fa-solid fa-earth-asia"></i>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Actions -->
+                <div style="display: flex; gap: 20px">
+                  <button
+                    style="
+                      background: transparent;
+                      border: none;
+                      cursor: pointer;
+                    "
+                  >
+                    <i
+                      class="fa-solid fa-ellipsis"
+                      style="font-size: 21px; color: var(--accent-color)"
+                    ></i>
+                  </button>
+
+                  <button
+                    style="
+                      background: transparent;
+                      border: none;
+                      cursor: pointer;
+                    "
+                  >
+                    <i
+                      class="fa-solid fa-xmark"
+                      style="font-size: 21px; color: var(--accent-color)"
+                    ></i>
+                  </button>
                 </div>
               </div>
 
-              <!-- Actions -->
-              <div>
-                <button><i class="fa-solid fa-ellipsis"></i></button>
-                <button><i class="fa-solid fa-xmark"></i></button>
+              <!-- Content -->
+              <div style="min-height: 300px">
+                <!-- Text Container -->
+                <div style="padding: 10px 0">😊</div>
+
+                <!-- Image container -->
+                <div style="min-height: 250px; width: 100%">
+                  <img
+                    src="./story-05.jpg"
+                    alt="Japanese Hut"
+                    style="width: 100%; border-radius: 10px"
+                  />
+                </div>
+              </div>
+
+              <!-- Footer -->
+              <div style="min-height: 50px">
+                <!-- Reactions -->
+                <div style="color: var(--accent-color)">🤣 1</div>
+
+                <!-- Jugaru Divider -->
+                <div
+                  style="
+                    height: 2px;
+                    background-color: var(--primary-color);
+                    margin: 10px 0;
+                  "
+                ></div>
+
+                <!-- Actions -->
+                <div style="display: flex; justify-content: space-around">
+                  <button class="icon-text-button" style="padding: 0 10px">
+                    <i
+                      style="color: var(--accent-color); font-size: 20px"
+                      class="fa-regular fa-thumbs-up"
+                    ></i>
+                    Like
+                  </button>
+
+                  <button class="icon-text-button" style="padding: 0 10px">
+                    <i
+                      style="color: var(--accent-color); font-size: 20px"
+                      class="fa-regular fa-comment"
+                    ></i>
+                    Comment
+                  </button>
+
+                  <button class="icon-text-button" style="padding: 0 10px">
+                    <i
+                      style="color: var(--accent-color); font-size: 20px"
+                      class="fa-solid fa-share"
+                    ></i>
+                    Share
+                  </button>
+                </div>
               </div>
             </div>
 
-            <!-- Content -->
-            <div style="border: 1px solid black; min-height: 300px">
-              <!-- Text Container -->
-              <div>Always work hard !</div>
+            <!-- Feed Item -->
+            <div class="feed-item">
+              <!-- Header -->
+              <div
+                style="
+                  display: flex;
+                  justify-content: space-between;
+                  min-height: 40px;
+                "
+              >
+                <!-- Profile -->
+                <div style="display: flex; gap: 10px">
+                  <!-- Avatar -->
+                  <button style="position: relative" class="icon-button">
+                    <img
+                      src="./profile.jpg"
+                      alt=""
+                      style="width: 40px; border-radius: 100%"
+                    />
+                  </button>
 
-              <!-- Image container -->
-              <div style="border: 1px solid black; min-height: 250px"></div>
+                  <!-- Text Content -->
+                  <div>
+                    <div style="font-size: 15px">Ahmed Raza</div>
+                    <div
+                      style="
+                        margin-top: 2px;
+                        font-size: 13.5px;
+                        color: var(--accent-color);
+                      "
+                    >
+                      4h . <i class="fa-solid fa-earth-asia"></i>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Actions -->
+                <div style="display: flex; gap: 20px">
+                  <button
+                    style="
+                      background: transparent;
+                      border: none;
+                      cursor: pointer;
+                    "
+                  >
+                    <i
+                      class="fa-solid fa-ellipsis"
+                      style="font-size: 21px; color: var(--accent-color)"
+                    ></i>
+                  </button>
+
+                  <button
+                    style="
+                      background: transparent;
+                      border: none;
+                      cursor: pointer;
+                    "
+                  >
+                    <i
+                      class="fa-solid fa-xmark"
+                      style="font-size: 21px; color: var(--accent-color)"
+                    ></i>
+                  </button>
+                </div>
+              </div>
+
+              <!-- Content -->
+              <div style="min-height: 300px">
+                <!-- Text Container -->
+                <div style="padding: 10px 0">😊</div>
+
+                <!-- Image container -->
+                <div style="min-height: 250px; width: 100%">
+                  <img
+                    src="./story-02.jpg"
+                    alt="Japanese Hut"
+                    style="width: 100%; border-radius: 10px"
+                  />
+                </div>
+              </div>
+
+              <!-- Footer -->
+              <div style="min-height: 50px">
+                <!-- Reactions -->
+                <div style="color: var(--accent-color)">🤣 1</div>
+
+                <!-- Jugaru Divider -->
+                <div
+                  style="
+                    height: 2px;
+                    background-color: var(--primary-color);
+                    margin: 10px 0;
+                  "
+                ></div>
+
+                <!-- Actions -->
+                <div style="display: flex; justify-content: space-around">
+                  <button class="icon-text-button" style="padding: 0 10px">
+                    <i
+                      style="color: var(--accent-color); font-size: 20px"
+                      class="fa-solid fa-thumbs-up"
+                    ></i>
+                    Like
+                  </button>
+
+                  <button class="icon-text-button" style="padding: 0 10px">
+                    <i
+                      style="color: var(--accent-color); font-size: 20px"
+                      class="fa-regular fa-comment"
+                    ></i>
+                    Comment
+                  </button>
+
+                  <button class="icon-text-button" style="padding: 0 10px">
+                    <i
+                      style="color: var(--accent-color); font-size: 20px"
+                      class="fa-solid fa-share"
+                    ></i>
+                    Share
+                  </button>
+                </div>
+              </div>
             </div>
 
-            <!-- Footer -->
-            <div style="border: 1px solid black; min-height: 50px">
-              <!-- Reactions -->
-              <div></div>
+            <!-- Feed Item -->
+            <div class="feed-item">
+              <!-- Header -->
+              <div
+                style="
+                  display: flex;
+                  justify-content: space-between;
+                  min-height: 40px;
+                "
+              >
+                <!-- Profile -->
+                <div style="display: flex; gap: 10px">
+                  <!-- Avatar -->
+                  <button style="position: relative" class="icon-button">
+                    <img
+                      src="./profile.jpg"
+                      alt=""
+                      style="width: 40px; border-radius: 100%"
+                    />
+                  </button>
 
-              <!-- Actions -->
-              <div>
-                <button><i class="fa-solid fa-thumbs-up"></i>Like</button>
-                <button><i class="fa-regular fa-comment"></i>Comment</button>
-                <button><i class="fa-solid fa-share"></i>Share</button>
+                  <!-- Text Content -->
+                  <div>
+                    <div style="font-size: 15px">Ahmed Raza</div>
+                    <div
+                      style="
+                        margin-top: 2px;
+                        font-size: 13.5px;
+                        color: var(--accent-color);
+                      "
+                    >
+                      4h . <i class="fa-solid fa-earth-asia"></i>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Actions -->
+                <div style="display: flex; gap: 20px">
+                  <button
+                    style="
+                      background: transparent;
+                      border: none;
+                      cursor: pointer;
+                    "
+                  >
+                    <i
+                      class="fa-solid fa-ellipsis"
+                      style="font-size: 21px; color: var(--accent-color)"
+                    ></i>
+                  </button>
+
+                  <button
+                    style="
+                      background: transparent;
+                      border: none;
+                      cursor: pointer;
+                    "
+                  >
+                    <i
+                      class="fa-solid fa-xmark"
+                      style="font-size: 21px; color: var(--accent-color)"
+                    ></i>
+                  </button>
+                </div>
+              </div>
+
+              <!-- Content -->
+              <div style="min-height: 300px">
+                <!-- Text Container -->
+                <div style="padding: 10px 0">😊</div>
+
+                <!-- Image container -->
+                <div style="min-height: 250px; width: 100%">
+                  <img
+                    src="./story-03.jpg"
+                    alt="Japanese Hut"
+                    style="width: 100%; border-radius: 10px"
+                  />
+                </div>
+              </div>
+
+              <!-- Footer -->
+              <div style="min-height: 50px">
+                <!-- Reactions -->
+                <div style="color: var(--accent-color)">🤣 1</div>
+
+                <!-- Jugaru Divider -->
+                <div
+                  style="
+                    height: 2px;
+                    background-color: var(--primary-color);
+                    margin: 10px 0;
+                  "
+                ></div>
+
+                <!-- Actions -->
+                <div style="display: flex; justify-content: space-around">
+                  <button class="icon-text-button" style="padding: 0 10px">
+                    <i
+                      style="color: var(--accent-color); font-size: 20px"
+                      class="fa-solid fa-thumbs-up"
+                    ></i>
+                    Like
+                  </button>
+
+                  <button class="icon-text-button" style="padding: 0 10px">
+                    <i
+                      style="color: var(--accent-color); font-size: 20px"
+                      class="fa-regular fa-comment"
+                    ></i>
+                    Comment
+                  </button>
+
+                  <button class="icon-text-button" style="padding: 0 10px">
+                    <i
+                      style="color: var(--accent-color); font-size: 20px"
+                      class="fa-solid fa-share"
+                    ></i>
+                    Share
+                  </button>
+                </div>
               </div>
             </div>
           </div>
+        </div>
+
+        <!-- Friend Requests, Birthdays, Contacts -->
+        <div
+          class="tablet_only"
+          style="
+            display: flex;
+            flex-direction: column;
+            background-color: var(--primary-color);
+            flex: 1;
+          "
+        >
+          <!-- Friend Requests -->
+          <div style="padding: 10px">
+            <div
+              style="
+                font-size: 18px;
+                font-weight: 500;
+                color: var(--accent-color);
+                display: flex;
+                justify-content: space-between;
+              "
+            >
+              Friend Requests <span style="color: #0867ffd5">See all</span>
+            </div>
+
+            <div
+              style="width: 100%; display: flex; padding-top: 15px; gap: 25px"
+            >
+              <div>
+                <button style="position: relative" class="icon-button">
+                  <img
+                    src="./profile.jpg"
+                    alt=""
+                    style="width: 55px; border-radius: 100%"
+                  />
+                </button>
+              </div>
+              <div style="width: 100%">
+                <div
+                  style="
+                    display: flex;
+                    font-weight: 500;
+                    justify-content: space-between;
+                    font-size: 14px;
+                  "
+                >
+                  Jawad Boosting
+                  <span style="font-size: 13px; color: var(--accent-color)"
+                    >3d</span
+                  >
+                </div>
+                <div
+                  style="
+                    font-size: 13px;
+                    display: flex;
+                    align-items: center;
+                    gap: 5px;
+                    margin-top: 5px;
+                  "
+                >
+                  <img
+                    src="./profile.jpg"
+                    alt=""
+                    style="width: 20px; border-radius: 100%"
+                  />
+
+                  <span style="color: var(--accent-color)"
+                    >2 mutual friends</span
+                  >
+                </div>
+                <div style="margin-top: 10px; display: flex; gap: 10px">
+                  <button
+                    style="
+                      background-color: #0866ff;
+                      color: white;
+                      padding: 10px;
+                      border-radius: 10px;
+                      border: none;
+                      width: 75px;
+                    "
+                  >
+                    Confirm
+                  </button>
+                  <button
+                    style="
+                      background-color: #e2e5e9;
+                      color: black;
+                      padding: 10px;
+                      border-radius: 10px;
+                      border: none;
+                      width: 75px;
+                    "
+                  >
+                    Delete
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Divider -->
+          <div
+            style="height: 2px; background-color: #e2e5e9; margin: 10px 0"
+          ></div>
+
+          <!-- Birthdays -->
+          <div style="padding: 10px">
+            <div
+              style="
+                font-size: 18px;
+                font-weight: 500;
+                color: var(--accent-color);
+                display: flex;
+                justify-content: space-between;
+              "
+            >
+              Birthdays
+            </div>
+
+            <div
+              style="width: 100%; display: flex; padding-top: 15px; gap: 10px"
+            >
+              <div>
+                <button style="position: relative" class="icon-button">
+                  <i
+                    class="fa-solid fa-gift"
+                    style="font-size: 30px; color: #29b3f8"
+                  ></i>
+                </button>
+              </div>
+              <div style="width: 100%; line-height: 22px; font-size: 16px">
+                <strong>Syed Talha Jilani</strong> and
+                <strong>5 others</strong> have birthdays today.
+              </div>
+            </div>
+          </div>
+
+          <!-- Divider -->
+          <div
+            style="height: 2px; background-color: #e2e5e9; margin: 10px 0"
+          ></div>
+
+          <!-- Contacts-->
+          <div style="padding: 10px">
+            <div
+              style="
+                font-size: 18px;
+                font-weight: 500;
+                color: var(--accent-color);
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+              "
+            >
+              Contacts
+              <div style="display: flex; gap: 10px">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <i class="fa-solid fa-ellipsis"></i>
+              </div>
+            </div>
+
+            <button
+              style="
+                background-color: #e2e5e9;
+                color: black;
+                padding: 10px;
+                border-radius: 10px;
+                border: none;
+                width: 100%;
+                margin-top: 15px;
+                display: flex;
+                gap: 10px;
+                justify-content: center;
+              "
+            >
+              See all 17 <i class="fa-solid fa-chevron-down"></i>
+            </button>
+          </div>
+        </div>
+
+        <div
+          style="
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: white;
+            border-radius: 100%;
+            padding: 10px;
+            cursor: pointer;
+            color: black;
+            box-shadow: 2px 2px 6px gray;
+            font-size: 15px;
+          "
+        >
+          <i class="fa-solid fa-pen-to-square"></i>
         </div>
       </main>
     </div>

@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+      integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <title>Document</title>
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        --primary-color: #f0f2f5;
+      }
+
+      .icon-button {
+        background: var(--primary-color);
+        border-radius: 100%;
+        border: none;
+        width: 40px;
+        height: 40px;
+        cursor: pointer;
+      }
+
+      .badge {
+        width: 15px;
+        height: 15px;
+        background-color: red;
+        color: white;
+        border-radius: 100%;
+        padding: 2px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 12px;
+        position: absolute;
+        right: -5px;
+        top: -5px;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Main Container -->
+    <div style="min-height: 100vh">
+      <!-- Navbar -->
+      <nav
+        style="
+          padding: 10px;
+          min-height: 30px;
+          display: flex;
+          justify-content: space-between;
+        "
+      >
+        <div style="display: flex; gap: 8px">
+          <!-- Facebook Logo -->
+          <button style="background-color: transparent; border: none">
+            <i
+              class="fa-brands fa-facebook"
+              style="color: #0866ff; font-size: 40px"
+            ></i>
+          </button>
+
+          <!-- Search Button -->
+          <button class="icon-button">
+            <i
+              class="fa-brands fa-searchengin"
+              style="color: gray; font-size: 20px"
+            ></i>
+          </button>
+        </div>
+        <div style="display: flex; gap: 8px">
+          <!-- Figma Button -->
+          <button class="icon-button">
+            <i
+              class="fa-brands fa-figma"
+              style="color: black; font-size: 20px"
+            ></i>
+          </button>
+
+          <!-- Messenger Button -->
+          <button style="position: relative" class="icon-button">
+            <i
+              class="fa-solid fa-comment"
+              style="color: black; font-size: 20px"
+            ></i>
+
+            <!-- Badge -->
+            <div class="badge">1</div>
+          </button>
+
+          <!-- Notification Button -->
+          <button style="position: relative" class="icon-button">
+            <i
+              class="fa-solid fa-bell"
+              style="color: black; font-size: 20px"
+            ></i>
+
+            <!-- Badge -->
+            <div class="badge">9</div>
+          </button>
+
+          <!-- Profile Button -->
+          <button style="position: relative" class="icon-button">
+            <img
+              src="./profile.jpg"
+              alt=""
+              style="width: 40px; border-radius: 100%"
+            />
+
+            <!-- Badge -->
+            <div
+              style="
+                border: 2px solid white;
+                background-color: var(--primary-color);
+                width: 8px;
+                height: 8px;
+                color: black;
+                border-radius: 100%;
+                padding: 2px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                font-size: 10px;
+                position: absolute;
+                right: 0px;
+                bottom: 0px;
+              "
+            >
+              <i
+                class="fa-solid fa-chevron-down"
+                style="color: black; font-size: 10px"
+              ></i>
+            </div>
+          </button>
+        </div>
+      </nav>
+
+      <!-- Feed/Content -->
+      <main style="min-height: 100px">
+        <!-- Searchbar -->
+        <div style="min-height: 40px">
+          <!-- Search Input -->
+          <div>
+            <i class="fa-solid fa-circle-user"></i>
+            <input
+              style="
+                width: 85%;
+                background: rgb(228, 227, 227);
+                border: none;
+                padding: 5px;
+                border-radius: 20px;
+                font-size: 10px;
+              "
+              type="text"
+              placeholder="What's on your mind, Junaid?"
+            />
+          </div>
+
+          <!-- Divider -->
+          <hr style="margin: 10px" />
+
+          <!-- Actions -->
+          <div style="display: flex; justify-content: center; gap: 2px">
+            <button>
+              <i style="color: crimson" class="fa-solid fa-video"></i> Live
+              Video
+            </button>
+            <button>
+              <i style="color: green" class="fa-solid fa-images"></i>
+              Photo/Video
+            </button>
+            <button>
+              <i style="color: deeppink" class="fa-brands fa-youtube"></i> Reel
+            </button>
+          </div>
+        </div>
+
+        <!-- Stories -->
+        <div style="min-height: 100px; display: flex">
+          <!-- Card -->
+          <div style="border: 1px solid black; min-width: 50px">Card</div>
+
+          <!-- Card -->
+          <div style="border: 1px solid black; min-width: 50px">Card</div>
+
+          <!-- Card -->
+          <div style="border: 1px solid black; min-width: 50px">Card</div>
+
+          <!-- Card -->
+          <div style="border: 1px solid black; min-width: 50px">Card</div>
+
+          <!-- Card -->
+          <div style="border: 1px solid black; min-width: 50px">Card</div>
+        </div>
+
+        <!-- Feed List -->
+        <div style="min-height: 350px; margin-top: 10px">
+          <!-- Feed Item -->
+          <div style="height: 400px">
+            <!-- Header -->
+            <div
+              style="
+                display: flex;
+                justify-content: space-between;
+                border: 1px solid black;
+                min-height: 40px;
+              "
+            >
+              <!-- Profile -->
+              <div style="display: flex">
+                <div><i class="fa-solid fa-circle-user"></i></div>
+                <div>
+                  <div>Ahmed Raza</div>
+                  <div>4h . <i class="fa-solid fa-earth-asia"></i></div>
+                </div>
+              </div>
+
+              <!-- Actions -->
+              <div>
+                <button><i class="fa-solid fa-ellipsis"></i></button>
+                <button><i class="fa-solid fa-xmark"></i></button>
+              </div>
+            </div>
+
+            <!-- Content -->
+            <div style="border: 1px solid black; min-height: 300px">
+              <!-- Text Container -->
+              <div>Always work hard !</div>
+
+              <!-- Image container -->
+              <div style="border: 1px solid black; min-height: 250px"></div>
+            </div>
+
+            <!-- Footer -->
+            <div style="border: 1px solid black; min-height: 50px">
+              <!-- Reactions -->
+              <div></div>
+
+              <!-- Actions -->
+              <div>
+                <button><i class="fa-solid fa-thumbs-up"></i>Like</button>
+                <button><i class="fa-regular fa-comment"></i>Comment</button>
+                <button><i class="fa-solid fa-share"></i>Share</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+  </body>
+</html>
